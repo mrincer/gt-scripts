@@ -201,17 +201,25 @@ $("input[name='upgrade-option']").on("click", () => {
         if(upgradeValue==="gold-month"){
             $("#upgrade_product").val('572');
             $("#upgrade_campaign").val('123');
+            console.log($("#upgrade_product").val());
+            console.log($("#upgrade_campaign").val());
         }else if(upgradeValue==="platinum-month"){
             $("#upgrade_product").val('573');
             $("#upgrade_campaign").val('125');
+            console.log($("#upgrade_product").val());
+            console.log($("#upgrade_campaign").val());
         }
     }else if(selectedOffer=== "annual"){
         if(upgradeValue==="gold-month"){
             $("#upgrade_product").val('575');
             $("#upgrade_campaign").val('123');
+            console.log($("#upgrade_product").val());
+            console.log($("#upgrade_campaign").val());
         }else if(upgradeValue==="platinum-month"){
             $("#upgrade_product").val('576');
             $("#upgrade_campaign").val('125');
+            console.log($("#upgrade_product").val());
+            console.log($("#upgrade_campaign").val());
         }
     }
 
