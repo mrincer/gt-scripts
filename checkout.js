@@ -193,9 +193,9 @@ const getSelectedUpgrade = () => {
 };
 
 $("input[name='upgrade-option']").on("click", () => {
-    const upgradeValue = getSelectedUpgrade();
+    let upgradeValue = getSelectedUpgrade();
     console.log(upgradeValue);
-    const selectedOffer = getOfferSelection();
+    let selectedOffer = getOfferSelection();
 
     if(selectedOffer === "month"){
         if(upgradeValue==="gold-month"){
