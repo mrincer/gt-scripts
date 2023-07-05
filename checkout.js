@@ -173,38 +173,19 @@ $("input[name='offer-option']").on("click", () => {
     if (value === "month") {
         $("#product_id").val('388');
         $("#package299Modal").modal("show");
+
+        $("#upgrade_product").val('572');
+        $("#upgrade_campaign").val('123');
+
         $("#gold-upgrade").contents().last().replaceWith("$39.95/Monthly Gold includes up to 90% commission");
         $("#platinum-upgrade").contents().last().replaceWith("$49.95/Monthly Platinum includes up to 90% commission");
-
     } else {
         $("#product_id").val('389');
         $("#platinum-upgrade").contents().last().replaceWith("$399/Annually Platinum includes up to 90% commission");
         $("#gold-upgrade").contents().last().replaceWith("$299/Annually Gold includes up to 70% commision");
     }
-
 });
-const updateHiddenFields = () => {
-    const offerOption = getOfferSelection();
-    let upgradeProduct = "";
-    let upgradeCampaign = "";
 
-    if (offerOption === "month") {
-        upgradeProduct = "572";
-        upgradeCampaign = "123";
-    } else if (offerOption === "annual") {
-        upgradeProduct = "576";
-        upgradeCampaign = "123";
-    }
-
-    const upgradeOption = $("input[name='upgrade-option']:checked").val();
-    if (upgradeOption === "plat-month") {
-        upgradeProduct = "573";
-        upgradeCampaign = "125";
-    }
-
-    $("#upgrade_product").val(upgradeProduct);
-    $("#upgrade_campaign").val(upgradeCampaign);
-};
 
 const getSelectedUpgrade = () => {
     const selectedUpgrade = $("input[name='upgrade-option']:checked").val();
@@ -214,17 +195,26 @@ const getSelectedUpgrade = () => {
 $("input[name='upgrade-option']").on("click", () => {
     const upgradeValue = getSelectedUpgrade();
     console.log(upgradeValue);
+    const selectedOffer = getOfferSelection();
 
-    if (upgradeValue === "gold-month") {
-        $("#upgrade_product").val('572');
-        $("#upgrade_campaign").val('123');
-
-
-    } else if (upgradeValue === "plat-month") {
-        $("#product_id").val('389');
-    } else if (upgradeValue === "") {
-        // No upgrade selected, do something else if needed
+    if(selectedOffer === "month"){
+        if(upgradeValue==="gold-month"){
+            $("#upgrade_product").val('572');
+            $("#upgrade_campaign").val('123');
+        }else if(upgradeValue==="platinum-month"){
+            $("#upgrade_product").val('573');
+            $("#upgrade_campaign").val('125');
+        }
+    }else if(selectedOffer=== "annual"){
+        if(upgradeValue==="gold-month"){
+            $("#upgrade_product").val('575');
+            $("#upgrade_campaign").val('123');
+        }else if(upgradeValue==="platinum-month"){
+            $("#upgrade_product").val('576');
+            $("#upgrade_campaign").val('125');
+        }
     }
+
 });
 
 
