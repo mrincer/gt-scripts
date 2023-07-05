@@ -183,6 +183,28 @@ $("input[name='offer-option']").on("click", () => {
     }
 
 });
+const updateHiddenFields = () => {
+    const offerOption = getOfferSelection();
+    let upgradeProduct = "";
+    let upgradeCampaign = "";
+
+    if (offerOption === "month") {
+        upgradeProduct = "572";
+        upgradeCampaign = "123";
+    } else if (offerOption === "annual") {
+        upgradeProduct = "576";
+        upgradeCampaign = "123";
+    }
+
+    const upgradeOption = $("input[name='upgrade-option']:checked").val();
+    if (upgradeOption === "plat-month") {
+        upgradeProduct = "573";
+        upgradeCampaign = "125";
+    }
+
+    $("#upgrade_product").val(upgradeProduct);
+    $("#upgrade_campaign").val(upgradeCampaign);
+};
 
 const getSelectedUpgrade = () => {
     const selectedUpgrade = $("input[name='upgrade-option']:checked").val();
