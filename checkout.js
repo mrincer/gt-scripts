@@ -120,6 +120,9 @@ function getUrlData() {
 
     return jsonData;
 }
+
+
+
 function changeStateOptions(options) {
     console.log("changeStateOptions")
     const selectElement = $("#shippingState");
@@ -197,33 +200,25 @@ $("input[name='upgrade-option']").on("click", () => {
     console.log(upgradeValue);
     let selectedOffer = getOfferSelection();
 
-    if(selectedOffer === "month"){
-        if(upgradeValue==="gold-month"){
-            $("#upgrade_product").val('572');
-            $("#upgrade_campaign").val('123');
-            console.log($("#upgrade_product").val());
-            console.log($("#upgrade_campaign").val());
-        }else if(upgradeValue==="platinum-month"){
-            $("#upgrade_product").val('573');
-            $("#upgrade_campaign").val('125');
-            console.log($("#upgrade_product").val());
-            console.log($("#upgrade_campaign").val());
-        }
-    }else if(selectedOffer=== "annual"){
-        if(upgradeValue==="gold-month"){
-            $("#upgrade_product").val('575');
-            $("#upgrade_campaign").val('123');
-            console.log($("#upgrade_product").val());
-            console.log($("#upgrade_campaign").val());
-        }else if(upgradeValue==="platinum-month"){
-            $("#upgrade_product").val('576');
-            $("#upgrade_campaign").val('125');
-            console.log($("#upgrade_product").val());
-            console.log($("#upgrade_campaign").val());
-        }
+    if (selectedOffer === "month" && upgradeValue === "gold-month") {
+        $("#upgrade_product").val('572');
+        $("#upgrade_campaign").val('123');
+    } else if (selectedOffer === "month" && upgradeValue === "platinum-month") {
+        $("#upgrade_product").val('573');
+        $("#upgrade_campaign").val('125');
+    } else if (selectedOffer === "annual" && upgradeValue === "gold-month") {
+        $("#upgrade_product").val('575');
+        $("#upgrade_campaign").val('123');
+    } else if ( selectedOffer === "annual" && upgradeValue === "platinum-month") {
+        $("#upgrade_product").val('576');
+        $("#upgrade_campaign").val('125');
+    }else if(upgradeValue === "no-upgrade"){
+        $("#upgrade_product").val('');
+        $("#upgrade_campaign").val('');
     }
+}
 
-});
+);
 
 
 
