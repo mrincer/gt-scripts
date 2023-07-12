@@ -182,10 +182,16 @@ $("input[name='offer-option']").on("click", () => {
 
         $("#gold-upgrade").contents().last().replaceWith("$39.95/Monthly Gold includes up to 90% commission");
         $("#platinum-upgrade").contents().last().replaceWith("$49.95/Monthly Platinum includes up to 90% commission");
+
+        $("#gold_upg").val('572');
+        $("#plat_upg").val('573')
     } else {
         $("#product_id").val('389');
         $("#platinum-upgrade").contents().last().replaceWith("$399/Annually Platinum includes up to 90% commission");
         $("#gold-upgrade").contents().last().replaceWith("$299/Annually Gold includes up to 70% commision");
+
+        $("#gold_upg").val('575');
+        $("#plat_upg").val('576')
     }
 });
 
@@ -199,23 +205,7 @@ $("input[name='upgrade-option']").on("click", () => {
     let upgradeValue = getSelectedUpgrade();
     console.log(upgradeValue);
     let selectedOffer = getOfferSelection();
-
-    if (selectedOffer === "month" && upgradeValue === "gold-month") {
-        $("#upgrade_product").val('572');
-        $("#upgrade_campaign").val('123');
-    } if (selectedOffer === "month" && upgradeValue === "platinum-month") {
-        $("#upgrade_product").val('573');
-        $("#upgrade_campaign").val('125');
-    } if (selectedOffer === "annual" && upgradeValue === "gold-month") {
-        $("#upgrade_product").val('575');
-        $("#upgrade_campaign").val('123');
-    } if (selectedOffer === "annual" && upgradeValue === "platinum-month") {
-        $("#upgrade_product").val('576');
-        $("#upgrade_campaign").val('125');
-    } if (upgradeValue === "no-upgrade") {
-        $("#upgrade_product").val('');
-        $("#upgrade_campaign").val('');
-    }
+    console.log(selectedOffer);
 }
 
 );
