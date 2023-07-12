@@ -175,7 +175,6 @@ $("input[name='offer-option']").on("click", () => {
 
     if (value === "month") {
         $("#product_id").val('388');
-        $("#package299Modal").modal("show");
 
         $("#upgrade_product").val('572');
         $("#upgrade_campaign").val('123');
@@ -185,7 +184,8 @@ $("input[name='offer-option']").on("click", () => {
 
         $("#gold_upg").val('572');
         $("#plat_upg").val('573')
-    } else {
+    }
+    if(value === "annual"){
         $("#product_id").val('389');
         $("#platinum-upgrade").contents().last().replaceWith("$399/Annually Platinum includes up to 90% commission");
         $("#gold-upgrade").contents().last().replaceWith("$299/Annually Gold includes up to 70% commision");
